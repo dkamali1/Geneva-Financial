@@ -538,6 +538,28 @@
 
     <p style="font-size:12px;color:#475569;margin-bottom:24px;">Encompass API and nCino API access are assumed to be included in Geneva's existing licenses. Confirm with IT before finalising.</p>
 
+    <div style="font-size: 12px; color: #64748b; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 12px;">API cost breakdown — how the numbers are calculated</div>
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 24px;">
+      <div style="background:#1e293b; border-radius:8px; padding:18px; border:1px solid #334155;">
+        <div style="font-size:12px;font-weight:600;color:#60a5fa;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:10px;">Phase 1 — Underwriting API</div>
+        <div style="font-size:13px;color:#94a3b8;line-height:1.7;">
+          GPT-4o pricing: <span style="color:#e2e8f0;">$2.50 / 1M input tokens, $10 / 1M output tokens.</span><br>
+          Each loan triggers <span style="color:#e2e8f0;">2–3 API calls</span> — profile analysis, recommendation generation, and dashboard formatting.<br>
+          A typical call uses ~<span style="color:#e2e8f0;">2,000 input + 600 output tokens</span>, costing ~$0.011 per call.<br>
+          <span style="color:#60a5fa;font-weight:500;">~$0.40–$0.70 per loan processed.</span>
+        </div>
+      </div>
+      <div style="background:#1e293b; border-radius:8px; padding:18px; border:1px solid #334155;">
+        <div style="font-size:12px;font-weight:600;color:#60a5fa;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:10px;">Phase 2 — Vision & Document API</div>
+        <div style="font-size:13px;color:#94a3b8;line-height:1.7;">
+          GPT-4o Vision processes each document page at <span style="color:#e2e8f0;">765–1,105 tokens per page</span> at high detail.<br>
+          Average borrower submits <span style="color:#e2e8f0;">5–8 documents, 20–30 pages</span> total.<br>
+          Extraction alone costs ~$0.50–$1.20 per borrower, plus a cross-reference call against Encompass.<br>
+          <span style="color:#60a5fa;font-weight:500;">~$0.80–$1.50 per loan processed.</span>
+        </div>
+      </div>
+    </div>
+
     <hr class="calc-divider">
 
     <div style="font-size: 12px; color: #64748b; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 14px;">Estimated delivery time</div>
