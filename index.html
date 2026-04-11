@@ -284,18 +284,13 @@
     <div class="chart-label">Estimated Cost Breakdown</div>
     <div class="cost-grid">
       <div class="cost-card">
-        <label>Development</label>
-        <div class="amount">$15k – $28k</div>
-        <div class="sub">200–280 hrs @ $75–100/hr</div>
-      </div>
-      <div class="cost-card">
         <label>Monthly AI API</label>
-        <div class="amount">$300 – $800</div>
+        <div class="amount">$200 – $350</div>
         <div class="sub">OpenAI, scales with volume</div>
       </div>
       <div class="cost-card">
         <label>Monthly Infra</label>
-        <div class="amount">$200 – $400</div>
+        <div class="amount">$150 – $300</div>
         <div class="sub">Hosting, monitoring</div>
       </div>
     </div>
@@ -323,7 +318,7 @@
         <span class="bar-range">1–2 weeks</span>
       </div>
     </div>
-    <p style="font-size: 13px; color: #94a3b8; margin-top: 10px; margin-bottom: 0;">Total estimated delivery: 8–13 weeks from requirements sign-off.</p>
+    <p style="font-size: 13px; color: #94a3b8; margin-top: 10px; margin-bottom: 0;">Total estimated delivery: <strong style="color:#60a5fa;">14–20 weeks</strong> with 1 developer, or <strong style="color:#34d399;">7–10 weeks</strong> with 2 developers working in parallel.</p>
   </div>
 
 
@@ -378,18 +373,13 @@
     <div class="chart-label">Estimated Cost Breakdown</div>
     <div class="cost-grid">
       <div class="cost-card">
-        <label>Development</label>
-        <div class="amount">$20k – $36k</div>
-        <div class="sub">260–360 hrs @ $75–100/hr</div>
-      </div>
-      <div class="cost-card">
         <label>Monthly AI Processing</label>
-        <div class="amount">$500 – $1,200</div>
+        <div class="amount">$400 – $750</div>
         <div class="sub">Vision + extraction APIs</div>
       </div>
       <div class="cost-card">
         <label>Monthly Storage</label>
-        <div class="amount">$150 – $350</div>
+        <div class="amount">$80 – $180</div>
         <div class="sub">Document storage + DB</div>
       </div>
     </div>
@@ -422,7 +412,7 @@
         <span class="bar-range">1–2 weeks</span>
       </div>
     </div>
-    <p style="font-size: 13px; color: #94a3b8; margin-top: 10px; margin-bottom: 0;">Total estimated delivery: 11–15 weeks. Can run in parallel with Phase 1 after week 4.</p>
+    <p style="font-size: 13px; color: #94a3b8; margin-top: 10px; margin-bottom: 0;">Total estimated delivery: <strong style="color:#60a5fa;">16–22 weeks</strong> with 1 developer, or <strong style="color:#34d399;">9–13 weeks</strong> with 2 developers. Can start in parallel with Phase 1 after week 4.</p>
   </div>
 
 
@@ -564,26 +554,31 @@
 
     <div style="font-size: 12px; color: #64748b; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 14px;">Estimated delivery time</div>
     <div class="team-toggle" style="margin-bottom: 20px;">
-      <div class="team-btn active" id="btn1" onclick="setTeam(1)">1 developer</div>
-      <div class="team-btn" id="btn2" onclick="setTeam(2)">2 developers</div>
+      <div class="team-btn" id="btn1" onclick="setTeam(1)">1 developer</div>
+      <div class="team-btn active" id="btn2" onclick="setTeam(2)">2 developers</div>
     </div>
 
     <div class="calc-result">
       <div class="calc-result-card">
         <label>Phase 1</label>
-        <div class="val" id="t-p1">12–16 weeks</div>
+        <div class="val" id="t-p1">7–10 weeks</div>
         <div class="sub">AI underwriting assistant</div>
       </div>
       <div class="calc-result-card">
         <label>Phase 2</label>
-        <div class="val" id="t-p2">14–18 weeks</div>
+        <div class="val" id="t-p2">9–13 weeks</div>
         <div class="sub">Document intelligence</div>
       </div>
       <div class="calc-result-card">
         <label>Total (overlapping)</label>
-        <div class="val" id="t-total">20–26 weeks</div>
+        <div class="val" id="t-total">12–17 weeks</div>
         <div class="sub">Phase 2 starts at week 4</div>
       </div>
+    </div>
+
+    <div id="savings-note" style="margin-top:16px;padding:12px 16px;background:#052e16;border:1px solid #16a34a;border-radius:8px;font-size:13px;color:#86efac;display:flex;gap:10px;align-items:center;">
+      <span style="font-size:16px;">↑</span>
+      <span>2 developers cuts total delivery time by roughly <strong style="color:#4ade80;">12–17 weeks</strong> compared to a solo developer — getting Geneva live and generating ROI significantly faster at no additional software cost.</span>
     </div>
     <p class="calc-hint">Phases can overlap after week 4 of Phase 1, cutting overall calendar time without any added cost.</p>
   </div>
@@ -677,11 +672,11 @@
     }
   });
 
-  let teamSize = 1;
+  let teamSize = 2;
 
   const timings = {
-    1: { p1: '12–16 weeks', p2: '14–18 weeks', total: '20–26 weeks' },
-    2: { p1: '7–10 weeks',  p2: '8–12 weeks',  total: '10–14 weeks' }
+    1: { p1: '14–20 weeks', p2: '16–22 weeks', total: '24–34 weeks' },
+    2: { p1: '7–10 weeks',  p2: '9–13 weeks',  total: '12–17 weeks' }
   };
 
   function setTeam(n) {
@@ -692,6 +687,7 @@
     document.getElementById('t-p1').textContent    = t.p1;
     document.getElementById('t-p2').textContent    = t.p2;
     document.getElementById('t-total').textContent = t.total;
+    document.getElementById('savings-note').style.display = n === 2 ? 'flex' : 'none';
   }
 
   function recalc() {
